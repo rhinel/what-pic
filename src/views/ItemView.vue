@@ -84,6 +84,8 @@ function fetchComments (store, item) {
     }).then(() => Promise.all(item.kids.map(id => {
       return fetchComments(store, store.state.items[id])
     })))
+  } else {
+    return Promise.resolve()
   }
 }
 </script>
